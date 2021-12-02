@@ -17,10 +17,6 @@ td {
     margin: auto;
 }
 
-tr {
-
-}
-
 .items {
     display: flex;
     justify-content: space-between;

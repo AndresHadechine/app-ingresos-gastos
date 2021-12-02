@@ -2,7 +2,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header';
 import Register from './components/Register';
-import ListMove from './components/ListMove';
+
 
 
 
@@ -13,8 +13,9 @@ function App() {
       <div className="app-wrapper">
         <div>
           <Header />
+          <div className="div">
           <Register />
-          <ListMove />
+          </div>
         </div>
       </div>
     </div>

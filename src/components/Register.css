@@ -1,4 +1,6 @@
-
+.div{
+    display: flex !important; 
+}
 .entry {
     justify-content: space-between;
     align-items: center;

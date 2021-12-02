@@ -1,0 +1,42 @@
+.iconX {
+    color: red;
+    width: 0px;
+}
+.iconPencil {
+    color: rgb(51, 255, 0);
+    width: 0px;
+}
+td {
+    padding: 15px !important;
+    font-weight: 700;
+}
+
+.table {
+	height: auto;
+    align-items: center;
+    margin: auto;
+}
+
+tr {
+
+}
+
+.items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: whitesmoke;
+}
+
+.button {
+    position: relative;
+    width: 100%;
+    border-radius: 20px;
+}
+
+.p {
+    position: relative;
+    width: 100% !important;
+    height: 100% !important;
+    text-align: center !important;
+}

@@ -1,0 +1,32 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: whitesmoke;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+}
+
+img {
+    width: 100px;
+    height: 80px;
+}
+
+.inputs {
+    display: flex;
+    text-align: center;
+}
+
+.input {
+    margin-right: 10px;
+    margin-left: 10px;
+
+}
+
+input {
+    border-radius: 5px;
+}
+

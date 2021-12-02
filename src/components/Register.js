@@ -43,9 +43,8 @@ const Register = () => {
                 </div>
 
             </Modal.Body>
-
             <Modal.Footer>
-                <Button variant="secondary">Close</Button>
+                <Button variant="secondary">Cancelar</Button>
                 <Button variant="primary">Agregar Movimiento</Button>
             </Modal.Footer>
         </Modal.Dialog>

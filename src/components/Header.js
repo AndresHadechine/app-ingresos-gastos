@@ -7,7 +7,7 @@ const Header = () => {
         <div className="header">
             <div className="left">
                 <figure>
-                    <img className="logo" src="https://lh3.googleusercontent.com/proxy/l71Z5pAKFvx8LeikRIkfJKe9Jxf9yk_Sfsg6L2dxdBSJgPAnhqnaIM0f0YKsW2yHlw7M0QJK1oE35vTiBe52vrQlNf5d4T4WO_xLSrlc_Ub4dr9TC8wtfwnS5bbnEdf4" alt="" />
+                    <img className="logo" src="https://www.sodapdf.com/blog/wp-content/uploads/2019/07/1-image-placeholder-how-to-wireframe-pdf.png" alt="" />
                 </figure>
                 <h1>Title</h1>
             </div>

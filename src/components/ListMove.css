@@ -1,0 +1,19 @@
+Form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form-check {
+    margin-right: 10px;
+    align-items: center;
+}
+
+.from-control {
+    margin-right: 10px;
+}
+
+.form-control, .input-group.form-select{
+    margin-right: 10px;
+}
+

@@ -1,5 +1,8 @@
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header';
+import Register from './components/Register';
+
 
 
 
@@ -9,6 +12,7 @@ function App() {
       <div className="app-wrapper">
         <div>
           <Header />
+          <Register />
         </div>
       </div>
     </div>

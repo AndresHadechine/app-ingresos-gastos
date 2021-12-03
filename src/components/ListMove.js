@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./ListMove.css";
 import Modal from "react-bootstrap/Modal";
 import InputGroup from "react-bootstrap/InputGroup";
@@ -8,7 +8,13 @@ import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Movements from "./Movements";
 
-const ListMove = () => {
+const ListMove = ({moves}) => {
+
+  const imprimir = () =>{
+    console.log(`En ListMove ${moves}`);
+}
+  
+
   return (
     <Modal.Dialog>
       <Modal.Header>
@@ -37,8 +43,8 @@ const ListMove = () => {
           </Form>
         </div>
         <br />
-        <div>
-          <Movements />
+        <div>{imprimir(moves)}
+             <Movements moves={moves} />
         </div>
       </Modal.Body>
     </Modal.Dialog>

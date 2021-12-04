@@ -2,16 +2,15 @@ import React, { useState } from "react";
 import "./Movements.css";
 import "./MovementSingle.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
+import { faTimes} from "@fortawesome/free-solid-svg-icons";
 import Button from "react-bootstrap/Button";
 import EditMove from "./EditMove";
 
 
-const MovementSingle = ({ move, setMoves, moves, handleDeleteMovement}) => {
+const MovementSingle = ({ move, setMoves, moves, handleDeleteMovement, handleEditMovement}) => {
   const {id, type, name, quantify } = move;
 
   return (
-    <>
     <tr>
       <td>
         <div className="iconX">
@@ -21,7 +20,7 @@ const MovementSingle = ({ move, setMoves, moves, handleDeleteMovement}) => {
       </td>
       <td>
         <div className="iconPencil">
-          <FontAwesomeIcon icon={faPencilAlt} size="2x" onClick />          
+        <EditMove />   
         </div>
       </td>
       <td>
@@ -32,9 +31,7 @@ const MovementSingle = ({ move, setMoves, moves, handleDeleteMovement}) => {
           {quantify}{" "}
         </Button>
       </td>
-    </tr>
-    <EditMove />
-    </>    
+    </tr> 
   );
 };
 

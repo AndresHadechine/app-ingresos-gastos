@@ -11,3 +11,8 @@
     border-radius: 20px;
     background-color: green;
 }
+
+td {
+    padding: 15px !important;
+    font-weight: 700;
+}

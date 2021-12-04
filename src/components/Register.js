@@ -11,12 +11,7 @@ import ListMove from "./ListMove";
 import { v4 as uuidv4 } from "uuid";
 
 const Register = () => {
-  const [type, setType] = useState("");
-  const [name, setName] = useState("");
-  const [quantify, setQuantify] = useState("");
   const [moves, setMoves] = useState([]);
-
-
   const moveTypeRef = useRef();
   const moveNameRef = useRef();
   const moveQuantifyRef = useRef();
@@ -26,18 +21,22 @@ const Register = () => {
     const name = moveNameRef.current.value;
     const quantify = moveQuantifyRef.current.value;
 
-    console.log(`En register${type},${name},${quantify}`);
-
-    if (name === "") {
-             return;
-            }
+    if (name === "") 
+             return;            
         
         console.log(`En register2 ${type},${name},${quantify}`);
         setMoves((prevMoves)=>{
           return [...prevMoves,{id: uuidv4(), type, name, quantify}];
         });
+        handleNullInputs();
   };
 
+  const handleNullInputs = () => {
+    moveTypeRef.current.value = "Seleccione el tipo de operación";
+    moveNameRef.current.value = null;
+    moveQuantifyRef.current.value = null;
+  };
+ 
   return (
     <div className="div container">
       <Modal.Dialog>
@@ -75,7 +74,7 @@ const Register = () => {
           </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary">Cancelar</Button>
+          <Button variant="secondary" onClick={handleNullInputs}>Cancelar</Button>
           <Button variant="primary" onClick={handleMoveAdd}>
             Agregar Movimiento
           </Button>

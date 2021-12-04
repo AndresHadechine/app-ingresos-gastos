@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./Movements.css";
 import Table from "react-bootstrap/Table";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes, faPencilAlt } from "@fortawesome/free-solid-svg-icons";

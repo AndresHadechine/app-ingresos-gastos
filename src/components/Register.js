@@ -28,6 +28,9 @@ const Register = () => {
         setMoves((prevMoves)=>{
           return [...prevMoves,{id: uuidv4(), type, name, quantify}];
         });
+
+        
+
         handleNullInputs();
   };
 

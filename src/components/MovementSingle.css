@@ -1,0 +1,13 @@
+.figure-red{
+    position: relative;
+    width: 100%;
+    border-radius: 20px;
+    background-color: red;
+}
+
+.figure-green{
+    position: relative;
+    width: 100%;
+    border-radius: 20px;
+    background-color: green;
+}

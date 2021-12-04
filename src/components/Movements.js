@@ -6,19 +6,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import Button from "react-bootstrap/Button";
 
-const Movements = ({ moves }) => {
-
-    const imprimir = () =>{
-        console.log(`en Movements${moves}`);
-      }
+const Movements = ({moves}) => {
+ const { id , type, name, quantify } = moves;
 
   return (
     <Table className="table" responsive="sm">
       <tbody>
         <tr>
-        {moves.map((move) => {
-            imprimir(moves);
-             <MovementSingle moves={move} />
+        {
+        moves.map((move) => {
+            return <MovementSingle move={move} />
           })
         }
         </tr>

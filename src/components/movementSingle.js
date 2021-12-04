@@ -6,9 +6,7 @@ import Button from "react-bootstrap/Button";
 
 const MovementSingle = ({ move }) => {
    const {id, type, name, quantify } = move;
-   const imprimir = () =>{
-       console.log(`En movementSingle${name}`);
-   }
+
   return (
     <tr>
       <td>
@@ -19,7 +17,7 @@ const MovementSingle = ({ move }) => {
       </td>
       <td>
         <div className="iconPencil">
-          <FontAwesomeIcon icon={faPencilAlt} size="2x" onClick={imprimir} />
+          <FontAwesomeIcon icon={faPencilAlt} size="2x" onClick />
         </div>
       </td>
       <td>

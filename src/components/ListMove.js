@@ -9,12 +9,6 @@ import Row from "react-bootstrap/Row";
 import Movements from "./Movements";
 
 const ListMove = ({moves}) => {
-
-  const imprimir = () =>{
-    console.log(`En ListMove ${moves}`);
-}
-  
-
   return (
     <Modal.Dialog>
       <Modal.Header>
@@ -43,8 +37,8 @@ const ListMove = ({moves}) => {
           </Form>
         </div>
         <br />
-        <div>{imprimir(moves)}
-             <Movements moves={moves} />
+        <div>
+            <Movements  moves={moves}  />
         </div>
       </Modal.Body>
     </Modal.Dialog>

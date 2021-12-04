@@ -11,6 +11,9 @@ import ListMove from "./ListMove";
 import { v4 as uuidv4 } from "uuid";
 
 const Register = () => {
+  const [type, setType] = useState("");
+  const [name, setName] = useState("");
+  const [quantify, setQuantify] = useState("");
   const [moves, setMoves] = useState([]);
 
 
@@ -25,13 +28,14 @@ const Register = () => {
 
     console.log(`En register${type},${name},${quantify}`);
 
-    if (name === "") 
+    if (name === "") {
              return;
-            
+            }
+        
         console.log(`En register2 ${type},${name},${quantify}`);
-        setMoves((prevTodos)=>{
-            return [...prevTodos,{id: uuidv4(), type, name, quantify}]
-        })
+        setMoves((prevMoves)=>{
+          return [...prevMoves,{id: uuidv4(), type, name, quantify}];
+        });
   };
 
   return (
@@ -77,7 +81,9 @@ const Register = () => {
           </Button>
         </Modal.Footer>
       </Modal.Dialog>
-      <ListMove moves={moves}  />
+      <ListMove
+       moves={moves}
+      />
     </div>
   );
 };

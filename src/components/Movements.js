@@ -6,8 +6,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import Button from "react-bootstrap/Button";
 
-const Movements = ({moves}) => {
+const Movements = ({moves, setMoves}) => {
  const { id , type, name, quantify } = moves;
+
+ const handleDeleteMovement = (id) => {
+   setMoves(moves.filter((move) =>  move.id !== id));
+};
 
   return (
     <Table className="table" responsive="sm">
@@ -15,7 +19,7 @@ const Movements = ({moves}) => {
         <tr>
         {
         moves.map((move) => {
-            return <MovementSingle move={move} />
+            return <MovementSingle move={move} setMoves={setMoves} moves={moves} handleDeleteMovement={handleDeleteMovement}/>
           })
         }
         </tr>

@@ -82,6 +82,7 @@ const Register = () => {
       </Modal.Dialog>
       <ListMove
        moves={moves}
+       setMoves={setMoves}
       />
     </div>
   );

@@ -7,14 +7,15 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Movements from "./Movements";
+import Figure from "react-bootstrap/Figure";
 
-const ListMove = ({moves}) => {
+const ListMove = ({ moves, setMoves }) => {
   return (
     <Modal.Dialog>
       <Modal.Header>
         <Modal.Title>Listado Movimientos</Modal.Title>
-      </Modal.Header>
 
+      </Modal.Header>
       <Modal.Body>
         <div>
           <Form>
@@ -38,7 +39,7 @@ const ListMove = ({moves}) => {
         </div>
         <br />
         <div>
-            <Movements  moves={moves}  />
+          <Movements moves={moves} setMoves={setMoves} />
         </div>
       </Modal.Body>
     </Modal.Dialog>

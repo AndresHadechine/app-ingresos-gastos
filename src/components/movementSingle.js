@@ -5,16 +5,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import Button from "react-bootstrap/Button";
 
-const MovementSingle = ({ move }) => {
-   const {id, type, name, quantify } = move;
+const MovementSingle = ({ move, setMoves, moves, handleDeleteMovement}) => {
+  const {id, type, name, quantify } = move;
+
+
 
   return (
     <tr>
       <td>
         <div className="iconX">
           {" "}
-          <FontAwesomeIcon className=".fa" icon={faTimes} size="2x" onClick />
-        </div>
+          <FontAwesomeIcon className=".fa" icon={faTimes} size="2x" onClick={() => {handleDeleteMovement(id)}} />
+        </div>        
       </td>
       <td>
         <div className="iconPencil">

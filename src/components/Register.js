@@ -20,7 +20,7 @@ const Register = () => {
     const type = moveTypeRef.current.value;
     const name = moveNameRef.current.value;
     const quantify = moveQuantifyRef.current.value;
-
+  
     if (name === "") return;
 
     console.log(`En register2 ${type},${name},${quantify}`);
@@ -53,7 +53,7 @@ const Register = () => {
           </div>
           <br />
           <div className="entry">
-            <p>Nombre: </p>
+            <p>Nombre:</p>
             <InputGroup className="mb-3">
               <InputGroup.Text>
                 <FontAwesomeIcon icon={faFile} />{" "}

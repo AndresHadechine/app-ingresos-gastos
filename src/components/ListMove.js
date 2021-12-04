@@ -10,28 +10,28 @@ import Movements from "./Movements";
 import Button from "react-bootstrap/Button";
 
 const ListMove = ({ moves, setMoves }) => {
-
   const [movesFilter, setMovesFilter] = useState(moves);
-
-  const handleFilterType = (option) =>{
-    if(option===0){
-      setMovesFilter(moves);
-    }else if(option===1){
-    setMovesFilter(moves.filter((move) => move.type === "1"));
-  }else if(option===2){
-    setMovesFilter(moves.filter((move) => move.type === "2"));
-  }
-  }
+ 
+  const handleFilterType = (option) => {
+    if (option === 0) setMovesFilter(moves);
+    else if (option === 1)
+      setMovesFilter(moves.filter((move) => move.type === "1"));
+    else if (option === 2)
+      setMovesFilter(moves.filter((move) => move.type === "2"));
+  };
 
   return (
     <Modal.Dialog>
       <Modal.Header>
         <Modal.Title>Listado Movimientos</Modal.Title>
-        <Button variant="primary" size="sm" disabled>{movesFilter.length}</Button>
+        <Button variant="primary" size="sm" disabled>
+          {movesFilter.length}
+        </Button>
       </Modal.Header>
       <Modal.Body>
         <div>
           <Form>
+            {}
             <Form.Group
               as={Row}
               md="4"
@@ -43,9 +43,28 @@ const ListMove = ({ moves, setMoves }) => {
                   <FontAwesomeIcon icon={faSearch} />
                 </InputGroup.Text>
                 <Form.Control type="text" name="name" />
-                <Form.Check type="radio" label="Todos" name="selection" id="todos" defaultChecked onClick={()=> handleFilterType(0)}/>
-                <Form.Check type="radio" label="Ingreso" name="selection" id="ingreso" onClick={()=> handleFilterType(1)}/>
-                <Form.Check type="radio" label="Gasto" name="selection" id="gasto" onClick={()=> handleFilterType(2)}/>
+                <Form.Check
+                  type="radio"
+                  label="Todos"
+                  name="selection"
+                  id="todos"
+                  defaultChecked
+                  onClick={() => handleFilterType(0)}
+                />
+                <Form.Check
+                  type="radio"
+                  label="Ingreso"
+                  name="selection"
+                  id="ingreso"
+                  onClick={() => handleFilterType(1)}
+                />
+                <Form.Check
+                  type="radio"
+                  label="Gasto"
+                  name="selection"
+                  id="gasto"
+                  onClick={() => handleFilterType(2)}
+                />
               </InputGroup>
             </Form.Group>
           </Form>

@@ -1,14 +1,14 @@
 import React, { useState, useRef } from 'react'
 import { Button, Modal } from 'react-bootstrap';
-import { faTimes, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
-import { faFile, faDollarSign } from "@fortawesome/free-solid-svg-icons";
-import ListMove from "./ListMove";
+import { faFile, faDollarSign, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 
-const EditMove = () => {
+const EditMove = ({move}) => {
+    const {type, name, quantify } = move;
+
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -22,12 +22,12 @@ const EditMove = () => {
          <FontAwesomeIcon icon={faPencilAlt} size="2x" onClick={handleShow} />  
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Modal heading</Modal.Title>
+                    <Modal.Title>Editar Movimiento</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
           <div className="entry">
             <p>Tipo Movimiento: </p>
-            <Form.Select aria-label="Default select example" ref={moveTypeRef}>
+            <Form.Select aria-label="Default select example" ref={moveTypeRef} value={type}>
               <option>Seleccione el tipo de operación</option>
               <option value="1">Ingreso</option>
               <option value="2">Gasto</option>
@@ -40,7 +40,7 @@ const EditMove = () => {
               <InputGroup.Text>
                 <FontAwesomeIcon icon={faFile} />{" "}
               </InputGroup.Text>
-              <FormControl aria-label="" ref={moveNameRef} />
+              <FormControl aria-label="" ref={moveNameRef}  placeholder={name} />
             </InputGroup>
           </div>
           <div className="entry">
@@ -49,14 +49,14 @@ const EditMove = () => {
               <InputGroup.Text>
                 <FontAwesomeIcon icon={faDollarSign} />{" "}
               </InputGroup.Text>
-              <FormControl aria-label="" ref={moveQuantifyRef} />
+              <FormControl aria-label="" ref={moveQuantifyRef}  placeholder={quantify} />
             </InputGroup>
           </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick>Cancelar</Button>
+          <Button variant="secondary" onClick={handleClose} >Cancelar</Button>
           <Button variant="primary" onClick>
-            Agregar Movimiento
+            Editar Movimiento
           </Button>
         </Modal.Footer>
             </Modal>

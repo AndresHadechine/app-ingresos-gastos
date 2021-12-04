@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Movements.css";
 import "./MovementSingle.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,7 +7,7 @@ import Button from "react-bootstrap/Button";
 import EditMove from "./EditMove";
 
 
-const MovementSingle = ({ move, setMoves, moves, handleDeleteMovement, handleEditMovement}) => {
+const MovementSingle = ({ move, setMoves, moves, handleDeleteMovement}) => {
   const {id, type, name, quantify } = move;
 
   return (
@@ -20,7 +20,7 @@ const MovementSingle = ({ move, setMoves, moves, handleDeleteMovement, handleEdi
       </td>
       <td>
         <div className="iconPencil">
-        <EditMove />   
+        <EditMove move={move} />   
         </div>
       </td>
       <td>

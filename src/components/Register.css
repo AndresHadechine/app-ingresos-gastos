@@ -1,12 +1,14 @@
 .div{
     display: flex !important; 
 }
+
 .entry {
     justify-content: space-between;
     align-items: center;
     display: flex;
     margin-right: 10px;
 }
+
 p {
     margin-right: 10px;
 }

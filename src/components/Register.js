@@ -21,17 +21,13 @@ const Register = () => {
     const name = moveNameRef.current.value;
     const quantify = moveQuantifyRef.current.value;
 
-    if (name === "") 
-             return;            
-        
-        console.log(`En register2 ${type},${name},${quantify}`);
-        setMoves((prevMoves)=>{
-          return [...prevMoves,{id: uuidv4(), type, name, quantify}];
-        });
+    if (name === "") return;
 
-        
-
-        handleNullInputs();
+    console.log(`En register2 ${type},${name},${quantify}`);
+    setMoves((prevMoves) => {
+      return [...prevMoves, { id: uuidv4(), type, name, quantify }];
+    });
+    handleNullInputs();
   };
 
   const handleNullInputs = () => {
@@ -39,19 +35,18 @@ const Register = () => {
     moveNameRef.current.value = null;
     moveQuantifyRef.current.value = null;
   };
- 
+
   return (
     <div className="div container">
       <Modal.Dialog>
         <Modal.Header>
           <Modal.Title>Registro</Modal.Title>
         </Modal.Header>
-
         <Modal.Body>
           <div className="entry">
             <p>Tipo Movimiento: </p>
             <Form.Select aria-label="Default select example" ref={moveTypeRef}>
-              <option>Seleccione el tipo de operación</option>
+              <option selected disabled>Seleccione el tipo de operación</option>
               <option value="1">Ingreso</option>
               <option value="2">Gasto</option>
             </Form.Select>
@@ -77,16 +72,15 @@ const Register = () => {
           </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleNullInputs}>Cancelar</Button>
+          <Button variant="secondary" onClick={handleNullInputs}>
+            Cancelar
+          </Button>
           <Button variant="primary" onClick={handleMoveAdd}>
             Agregar Movimiento
           </Button>
         </Modal.Footer>
       </Modal.Dialog>
-      <ListMove
-       moves={moves}
-       setMoves={setMoves}
-      />
+      <ListMove moves={moves} setMoves={setMoves} />
     </div>
   );
 };

@@ -2,10 +2,12 @@
     color: red;
     width: 0px;
 }
+
 .iconPencil {
     color: rgb(51, 255, 0);
     width: 0px;
 }
+
 td {
     padding: 15px !important;
     font-weight: 700;

@@ -23,7 +23,6 @@ const Register = () => {
   
     if (name === "") return;
 
-    console.log(`En register2 ${type},${name},${quantify}`);
     setMoves((prevMoves) => {
       return [...prevMoves, { id: uuidv4(), type, name, quantify }];
     });
@@ -45,8 +44,7 @@ const Register = () => {
         <Modal.Body>
           <div className="entry">
             <p>Tipo Movimiento: </p>
-            <Form.Select aria-label="Default select example" ref={moveTypeRef}>
-              <option selected disabled>Seleccione el tipo de operación</option>
+            <Form.Select aria-label="Default select example" ref={moveTypeRef} required>
               <option value="1">Ingreso</option>
               <option value="2">Gasto</option>
             </Form.Select>

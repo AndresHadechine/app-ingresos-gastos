@@ -7,8 +7,15 @@ import Button from "react-bootstrap/Button";
 import EditMove from "./EditMove";
 
 
-const MovementSingle = ({ move, setMoves, moves, handleDeleteMovement}) => {
+const MovementSingle = ({ move, setMoves, moves, handleDeleteMovement, handleFilterType}) => {
   const {id, type, name, quantify } = move;
+
+  const handleEditMove = () =>{
+   const newMove = (moves.filter((move2) => move2.id === id));
+
+   handleFilterType(0);
+
+  }
 
   return (
     <tr>
@@ -20,7 +27,7 @@ const MovementSingle = ({ move, setMoves, moves, handleDeleteMovement}) => {
       </td>
       <td>
         <div className="iconPencil">
-        <EditMove move={move} />   
+        <EditMove move={move} handleEditMove={handleEditMove} />   
         </div>
       </td>
       <td>

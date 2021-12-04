@@ -17,6 +17,8 @@ const EditMove = ({move}) => {
     const moveNameRef = useRef();
     const moveQuantifyRef = useRef();
 
+    
+
     return (
         <>
          <FontAwesomeIcon icon={faPencilAlt} size="2x" onClick={handleShow} />  

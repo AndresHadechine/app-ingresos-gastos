@@ -3,10 +3,11 @@ import "./Movements.css";
 import Table from "react-bootstrap/Table";
 import MovementSingle from "./movementSingle";
 
-const Movements = ({ moves, setMoves }) => {
+const Movements = ({ moves, setMoves, handleFilterType }) => {
 
   const handleDeleteMovement = (id) => {
     setMoves(moves.filter((move) => move.id !== id));
+    handleFilterType(0);
   };
 
   return (
@@ -20,6 +21,7 @@ const Movements = ({ moves, setMoves }) => {
                 setMoves={setMoves}
                 moves={moves}
                 handleDeleteMovement={handleDeleteMovement}
+                handleFilterType={handleFilterType}
               />
             );
           })}

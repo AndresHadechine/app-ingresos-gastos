@@ -23,16 +23,30 @@ const EditMove = ({ move, finalBalance, setFinalBalance }) => {
     const newQuantify = moveQuantifyRef.current.value;
     console.log("Old type " + move.type);
       console.log("new type: " + newType);
-      if(newType === "1"){
-        let operacion = parseInt(finalBalance) + parseInt(newQuantify);
-        setFinalBalance(operacion);
+
+      if(newType === type){
+        if(newType === "1"){
+          let operacion = parseInt(finalBalance) - parseInt(quantify) + parseInt(newQuantify);
+          setFinalBalance(operacion);
+        }else{
+          let operacion = parseInt(finalBalance) + parseInt(quantify) - parseInt(newQuantify);
+          setFinalBalance(operacion);
+        }      
+        move.type = newType;
+        move.name = newName;
+        move.quantify = newQuantify;
       }else{
-        let operacion = parseInt(finalBalance) - parseInt(newQuantify);
-        setFinalBalance(operacion);
-      }      
-      move.type = newType;
-      move.name = newName;
-      move.quantify = newQuantify;
+        if(type === "1"){
+          let operacion = parseInt(finalBalance) - parseInt(quantify) - parseInt(newQuantify);
+          setFinalBalance(operacion);
+        }else{
+          let operacion = parseInt(finalBalance) + parseInt(quantify) + parseInt(newQuantify);
+          setFinalBalance(operacion);
+        }      
+        move.type = newType;
+        move.name = newName;
+        move.quantify = newQuantify;
+      }
     setShow(false);
   };
 

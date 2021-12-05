@@ -1,8 +1,20 @@
 import './Header.css'
 import InputGroup from 'react-bootstrap/InputGroup'
 import FormControl from 'react-bootstrap/FormControl'
+import React, { useRef, useState } from "react";
 
-const Header = () => {
+const Header = ({ setInitialBalance, finalBalance, setFinalBalance}) => {
+    const initialBalanceRef = useRef();
+    const finalBalanceRef = useRef();
+
+
+    const handleBalanceInput = () => {
+        let value = initialBalanceRef.current.value;
+        setInitialBalance(value);
+        setFinalBalance(value);
+        console.log("Saldo: " + value);
+    };
+
     return (
         <div className="header">
             <div className="left">
@@ -16,14 +28,21 @@ const Header = () => {
                     <p>Saldo Inicial:</p>
                     <InputGroup className="mb-3">
                         <InputGroup.Text>$</InputGroup.Text>
-                        <FormControl aria-label="Amount (to the nearest dollar)" />
+                        <FormControl aria-label="" 
+                        type="number"
+                        ref={initialBalanceRef} 
+                        onChange={handleBalanceInput}/>
                     </InputGroup>
                 </div>
                 <div className="input">
                     <p>Saldo Final:</p>
                     <InputGroup className="mb-3">
                         <InputGroup.Text>$</InputGroup.Text>
-                        <FormControl aria-label="Amount (to the nearest dollar)" />
+                        <FormControl aria-label="" 
+                        disabled="true" 
+                        ref={finalBalanceRef} 
+                        placeholder={finalBalance}
+                        />
                     </InputGroup>
                 </div>
             </div>

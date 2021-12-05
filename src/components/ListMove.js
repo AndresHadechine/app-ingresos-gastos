@@ -13,9 +13,11 @@ const ListMove = ({ moves, setMoves }) => {
   const [movesFilter, setMovesFilter] = useState(moves);
  
   const handleFilterType = (option) => {
-    option === 0? setMovesFilter(moves):
-     option === 1? setMovesFilter(moves.filter((move) => move.type === "1")):
-    option === 2? setMovesFilter(moves.filter((move) => move.type === "2")): alert("ojo con eso manito")
+    if (option === 0) setMovesFilter(moves);
+    else if (option === 1)
+      setMovesFilter(moves.filter((move) => move.type === "1"));
+    else if (option === 2)
+      setMovesFilter(moves.filter((move) => move.type === "2"));
   };
 
   return (
@@ -29,6 +31,7 @@ const ListMove = ({ moves, setMoves }) => {
       <Modal.Body>
         <div>
           <Form>
+            {}
             <Form.Group
               as={Row}
               md="4"
@@ -46,21 +49,21 @@ const ListMove = ({ moves, setMoves }) => {
                   name="selection"
                   id="todos"
                   defaultChecked
-                 onClick={()=> handleFilterType(0) }
+                  onClick={() => handleFilterType(0)}
                 />
                 <Form.Check
                   type="radio"
                   label="Ingreso"
                   name="selection"
                   id="ingreso"
-                  onClick={()=> handleFilterType(1)}
+                  onClick={() => handleFilterType(1)}
                 />
                 <Form.Check
                   type="radio"
                   label="Gasto"
                   name="selection"
                   id="gasto"
-                  onClick={()=> handleFilterType(2) }
+                  onClick={() => handleFilterType(2)}
                 />
               </InputGroup>
             </Form.Group>
@@ -68,7 +71,7 @@ const ListMove = ({ moves, setMoves }) => {
         </div>
         <br />
         <div>
-          <Movements moves={movesFilter} setMoves={setMoves} handleFilterType={handleFilterType} />
+          <Movements moves={movesFilter} setMoves={setMoves} />
         </div>
       </Modal.Body>
     </Modal.Dialog>

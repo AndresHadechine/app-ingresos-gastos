@@ -10,7 +10,7 @@ import { faFile, faDollarSign } from "@fortawesome/free-solid-svg-icons";
 import ListMove from "./ListMove";
 import { v4 as uuidv4 } from "uuid";
 
-const Register = () => {
+const Register = ({ finalBalance, setFinalBalance}) => {
   const [moves, setMoves] = useState([]);
   const moveTypeRef = useRef();
   const moveNameRef = useRef();
@@ -20,12 +20,15 @@ const Register = () => {
     const type = moveTypeRef.current.value;
     const name = moveNameRef.current.value;
     const quantify = moveQuantifyRef.current.value;
+
+
   
     if (name === "") return;
 
     setMoves((prevMoves) => {
       return [...prevMoves, { id: uuidv4(), type, name, quantify }];
     });
+    calculateBalance(type, quantify);
     handleNullInputs();
   };
 
@@ -33,6 +36,16 @@ const Register = () => {
     moveTypeRef.current.value = "Seleccione el tipo de operación";
     moveNameRef.current.value = null;
     moveQuantifyRef.current.value = null;
+  };
+
+  const calculateBalance = (type, quantify) => {
+    if(type === "1"){
+      let operacion = parseInt(finalBalance) + parseInt(quantify);
+      setFinalBalance(operacion);
+    }else{
+      let operacion = parseInt(finalBalance) - parseInt(quantify);
+      setFinalBalance(operacion);
+    }
   };
 
   return (
@@ -65,7 +78,7 @@ const Register = () => {
               <InputGroup.Text>
                 <FontAwesomeIcon icon={faDollarSign} />{" "}
               </InputGroup.Text>
-              <FormControl aria-label="" ref={moveQuantifyRef} />
+              <FormControl aria-label="" ref={moveQuantifyRef} type="number"/>
             </InputGroup>
           </div>
         </Modal.Body>

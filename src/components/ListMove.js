@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./ListMove.css";
 import Modal from "react-bootstrap/Modal";
 import InputGroup from "react-bootstrap/InputGroup";
@@ -10,21 +10,32 @@ import Movements from "./Movements";
 import Button from "react-bootstrap/Button";
 
 const ListMove = ({ moves, setMoves, finalBalance, setFinalBalance }) => {
-  const [movesFilter, setMovesFilter] = useState(moves);
+  const [movesFilter, setMovesFilter] = useState(moves);  
+  const [option, setOption] = useState(0);
+  useEffect(() => {
+    setMovesFilter(moves);
+    handleFilterType(option);
+  }, [moves]);
   const searchRef = useRef();
 
   const handleFilterType = (option) => {
-    if (option === 0) setMovesFilter(moves);
-    else if (option === 1)
+    setOption(option);
+    if (option === 0) {
+      setMovesFilter(moves);
+      setOption(option);
+    }else if (option === 1){
       setMovesFilter(moves.filter((move) => move.type === "1"));
-    else if (option === 2)
+      setOption(option);
+    }else if (option === 2){
       setMovesFilter(moves.filter((move) => move.type === "2"));
+      setOption(option);
+    }
   };
 
   const handleSearch = () => {
     const search = searchRef.current.value;
     if(search === ""){
-      setMovesFilter(moves);
+      setMovesFilter(moves);    
     }else{
       console.log("Seach text: " + search);
       setMovesFilter(moves.filter((move) => move.name.search(search) != -1));

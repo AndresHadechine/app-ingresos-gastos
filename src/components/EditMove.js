@@ -49,8 +49,6 @@ const EditMove = ({ move, finalBalance, setFinalBalance }) => {
       }
     setShow(false);
   };
-
-
   return (
     <>
       <FontAwesomeIcon icon={faPencilAlt} size="2x" onClick={handleShow} />
@@ -73,7 +71,7 @@ const EditMove = ({ move, finalBalance, setFinalBalance }) => {
               <InputGroup.Text>
                 <FontAwesomeIcon icon={faFile} />{" "}
               </InputGroup.Text>
-              <FormControl aria-label="" ref={moveNameRef} placeholder={name} />
+              <FormControl aria-label="" ref={moveNameRef} placeholder={name} required="true" />
             </InputGroup>
           </div>
           <div className="entry">
@@ -82,7 +80,7 @@ const EditMove = ({ move, finalBalance, setFinalBalance }) => {
               <InputGroup.Text>
                 <FontAwesomeIcon icon={faDollarSign} />{" "}
               </InputGroup.Text>
-              <FormControl aria-label="" ref={moveQuantifyRef} placeholder={quantify} />
+              <FormControl aria-label="" ref={moveQuantifyRef} placeholder={quantify} required />
             </InputGroup>
           </div>
         </Modal.Body>

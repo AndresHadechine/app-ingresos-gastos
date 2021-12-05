@@ -5,7 +5,7 @@ import Register from './components/Register';
 import React, { useState } from "react";
 
 function App() {
-  const [initialBalance, setInitialBalance] = useState(0);
+  const [initialBalance, setInitialBalance] = useState(null);
   const [finalBalance, setFinalBalance] = useState();
 
   return (
@@ -18,7 +18,7 @@ function App() {
           setFinalBalance={setFinalBalance}
           />
           <div className="div">
-          <Register finalBalance={finalBalance} setFinalBalance={setFinalBalance}/>
+          <Register initialBalance={initialBalance} finalBalance={finalBalance} setFinalBalance={setFinalBalance}/>
           </div>
         </div>
       </div>

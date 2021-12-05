@@ -3,11 +3,11 @@ import "./Movements.css";
 import Table from "react-bootstrap/Table";
 import MovementSingle from "./movementSingle";
 
-const Movements = ({ moves, setMoves, handleFilterType }) => {
+const Movements = ({ moves, setMoves, setMovesFilter, finalBalance, setFinalBalance}) => {
 
   const handleDeleteMovement = (id) => {
     setMoves(moves.filter((move) => move.id !== id));
-    handleFilterType(0);
+    setMovesFilter(moves);
   };
 
   return (
@@ -21,7 +21,8 @@ const Movements = ({ moves, setMoves, handleFilterType }) => {
                 setMoves={setMoves}
                 moves={moves}
                 handleDeleteMovement={handleDeleteMovement}
-                handleFilterType={handleFilterType}
+                finalBalance={finalBalance}
+                setFinalBalance={setFinalBalance}
               />
             );
           })}

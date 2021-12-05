@@ -7,7 +7,7 @@ import Button from "react-bootstrap/Button";
 import EditMove from "./EditMove";
 
 
-const MovementSingle = ({ move, setMoves, moves, handleDeleteMovement, handleFilterType}) => {
+const MovementSingle = ({ move, setMoves, moves, handleDeleteMovement, handleFilterType, finalBalance, setFinalBalance}) => {
   const {id, type, name, quantify } = move;
 
   const handleEditMove = () =>{
@@ -27,7 +27,7 @@ const MovementSingle = ({ move, setMoves, moves, handleDeleteMovement, handleFil
       </td>
       <td>
         <div className="iconPencil">
-        <EditMove move={move} handleEditMove={handleEditMove} />   
+        <EditMove move={move} handleEditMove={handleEditMove} finalBalance={finalBalance} setFinalBalance={setFinalBalance} />   
         </div>
       </td>
       <td>

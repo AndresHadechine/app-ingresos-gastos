@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "./ListMove.css";
 import Modal from "react-bootstrap/Modal";
 import InputGroup from "react-bootstrap/InputGroup";
@@ -9,15 +9,26 @@ import Row from "react-bootstrap/Row";
 import Movements from "./Movements";
 import Button from "react-bootstrap/Button";
 
-const ListMove = ({ moves, setMoves }) => {
+const ListMove = ({ moves, setMoves, finalBalance, setFinalBalance }) => {
   const [movesFilter, setMovesFilter] = useState(moves);
- 
+  const searchRef = useRef();
+
   const handleFilterType = (option) => {
     if (option === 0) setMovesFilter(moves);
     else if (option === 1)
       setMovesFilter(moves.filter((move) => move.type === "1"));
     else if (option === 2)
       setMovesFilter(moves.filter((move) => move.type === "2"));
+  };
+
+  const handleSearch = () => {
+    const search = searchRef.current.value;
+    if(search === ""){
+      setMovesFilter(moves);
+    }else{
+      console.log("Seach text: " + search);
+      setMovesFilter(moves.filter((move) => move.name.search(search) != -1));
+    }    
   };
 
   return (
@@ -42,7 +53,7 @@ const ListMove = ({ moves, setMoves }) => {
                 <InputGroup.Text>
                   <FontAwesomeIcon icon={faSearch} />
                 </InputGroup.Text>
-                <Form.Control type="text" name="name" />
+                <Form.Control type="text" name="name" ref={searchRef} onChange={handleSearch}/>
                 <Form.Check
                   type="radio"
                   label="Todos"
@@ -71,7 +82,11 @@ const ListMove = ({ moves, setMoves }) => {
         </div>
         <br />
         <div>
-          <Movements moves={movesFilter} setMoves={setMoves} />
+          <Movements moves={movesFilter} 
+          setMoves={setMoves} 
+          setMovesFilter={setMovesFilter} 
+          finalBalance={finalBalance}
+          setFinalBalance={setFinalBalance} />
         </div>
       </Modal.Body>
     </Modal.Dialog>

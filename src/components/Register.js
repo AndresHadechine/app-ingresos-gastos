@@ -91,7 +91,7 @@ const Register = ({ finalBalance, setFinalBalance}) => {
           </Button>
         </Modal.Footer>
       </Modal.Dialog>
-      <ListMove moves={moves} setMoves={setMoves} />
+      <ListMove moves={moves} setMoves={setMoves} finalBalance={finalBalance} setFinalBalance={setFinalBalance} />
     </div>
   );
 };

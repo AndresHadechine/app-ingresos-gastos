@@ -1,32 +1,29 @@
-import React, { useState, useRef, useEffect } from "react";
-import "./ListMove.css";
-import Modal from "react-bootstrap/Modal";
-import InputGroup from "react-bootstrap/InputGroup";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import Form from "react-bootstrap/Form";
-import Row from "react-bootstrap/Row";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useEffect, useRef, useState } from "react";
+import { Button, Form, InputGroup, Modal, Row } from "react-bootstrap";
+import "./ListMove.css";
 import Movements from "./Movements";
-import Button from "react-bootstrap/Button";
 
 const ListMove = ({ moves, setMoves, finalBalance, setFinalBalance }) => {
-  const [movesFilter, setMovesFilter] = useState(moves);  
+  const [movesFilter, setMovesFilter] = useState(moves);
   const [option, setOption] = useState(0);
+  const searchRef = useRef();
+
   useEffect(() => {
     setMovesFilter(moves);
     handleFilterType(option);
   }, [moves]);
-  const searchRef = useRef();
 
   const handleFilterType = (option) => {
     setOption(option);
     if (option === 0) {
       setMovesFilter(moves);
       setOption(option);
-    }else if (option === 1){
+    } else if (option === 1) {
       setMovesFilter(moves.filter((move) => move.type === "1"));
       setOption(option);
-    }else if (option === 2){
+    } else if (option === 2) {
       setMovesFilter(moves.filter((move) => move.type === "2"));
       setOption(option);
     }
@@ -34,12 +31,12 @@ const ListMove = ({ moves, setMoves, finalBalance, setFinalBalance }) => {
 
   const handleSearch = () => {
     const search = searchRef.current.value;
-    if(search === ""){
-      setMovesFilter(moves);    
-    }else{
+    if (search === "") {
+      setMovesFilter(moves);
+    } else {
       console.log("Seach text: " + search);
       setMovesFilter(moves.filter((move) => move.name.search(search) != -1));
-    }    
+    }
   };
 
   return (
@@ -53,7 +50,6 @@ const ListMove = ({ moves, setMoves, finalBalance, setFinalBalance }) => {
       <Modal.Body>
         <div>
           <Form>
-            {}
             <Form.Group
               as={Row}
               md="4"
@@ -64,7 +60,7 @@ const ListMove = ({ moves, setMoves, finalBalance, setFinalBalance }) => {
                 <InputGroup.Text>
                   <FontAwesomeIcon icon={faSearch} />
                 </InputGroup.Text>
-                <Form.Control type="text" name="name" ref={searchRef} onChange={handleSearch}/>
+                <Form.Control type="text" name="name" ref={searchRef} onChange={handleSearch} />
                 <Form.Check
                   type="radio"
                   label="Todos"
@@ -93,11 +89,11 @@ const ListMove = ({ moves, setMoves, finalBalance, setFinalBalance }) => {
         </div>
         <br />
         <div>
-          <Movements moves={movesFilter} 
-          setMoves={setMoves} 
-          setMovesFilter={setMovesFilter} 
-          finalBalance={finalBalance}
-          setFinalBalance={setFinalBalance} />
+          <Movements moves={movesFilter}
+            setMoves={setMoves}
+            setMovesFilter={setMovesFilter}
+            finalBalance={finalBalance}
+            setFinalBalance={setFinalBalance} />
         </div>
       </Modal.Body>
     </Modal.Dialog>

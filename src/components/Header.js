@@ -1,9 +1,9 @@
-import './Header.css'
-import InputGroup from 'react-bootstrap/InputGroup'
-import FormControl from 'react-bootstrap/FormControl'
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
+import FormControl from 'react-bootstrap/FormControl';
+import InputGroup from 'react-bootstrap/InputGroup';
+import './Header.css';
 
-const Header = ({ setInitialBalance, finalBalance, setFinalBalance}) => {
+const Header = ({ setInitialBalance, finalBalance, setFinalBalance }) => {
     const initialBalanceRef = useRef();
     const finalBalanceRef = useRef();
 
@@ -19,7 +19,7 @@ const Header = ({ setInitialBalance, finalBalance, setFinalBalance}) => {
         <div className="header">
             <div className="left">
                 <figure>
-                   <a href="#"><img className="logo" src="https://www.sodapdf.com/blog/wp-content/uploads/2019/07/1-image-placeholder-how-to-wireframe-pdf.png" alt="" /></a>
+                    <a href="#"><img className="logo" src="https://www.sodapdf.com/blog/wp-content/uploads/2019/07/1-image-placeholder-how-to-wireframe-pdf.png" alt="" /></a>
                 </figure>
                 <h1>Title</h1>
             </div>
@@ -28,20 +28,20 @@ const Header = ({ setInitialBalance, finalBalance, setFinalBalance}) => {
                     <p>Saldo Inicial:</p>
                     <InputGroup className="mb-3">
                         <InputGroup.Text>$</InputGroup.Text>
-                        <FormControl aria-label="" 
-                        type="number"
-                        ref={initialBalanceRef} 
-                        onChange={handleBalanceInput}/>
+                        <FormControl aria-label=""
+                            type="number"
+                            ref={initialBalanceRef}
+                            onChange={handleBalanceInput} />
                     </InputGroup>
                 </div>
                 <div className="input">
                     <p>Saldo Final:</p>
                     <InputGroup className="mb-3">
                         <InputGroup.Text>$</InputGroup.Text>
-                        <FormControl aria-label="" 
-                        disabled="true" 
-                        ref={finalBalanceRef} 
-                        placeholder={finalBalance}
+                        <FormControl aria-label=""
+                            disabled="true"
+                            ref={finalBalanceRef}
+                            placeholder={finalBalance}
                         />
                     </InputGroup>
                 </div>

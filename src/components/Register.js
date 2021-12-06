@@ -1,14 +1,14 @@
+import { faDollarSign, faFile } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useRef, useState } from "react";
-import "./Register.css";
-import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFile, faDollarSign } from "@fortawesome/free-solid-svg-icons";
-import ListMove from "./ListMove";
+import InputGroup from "react-bootstrap/InputGroup";
+import Modal from "react-bootstrap/Modal";
 import { v4 as uuidv4 } from "uuid";
+import ListMove from "./ListMove";
+import "./Register.css";
 
 const Register = ({ initialBalance, finalBalance, setFinalBalance }) => {
   const [moves, setMoves] = useState([]);
@@ -19,22 +19,22 @@ const Register = ({ initialBalance, finalBalance, setFinalBalance }) => {
   const handleMoveAdd = () => {
     const type = moveTypeRef.current.value;
     const name = moveNameRef.current.value;
-    const quantify = moveQuantifyRef.current.value;   
-    
-      if (initialBalance == null) {
+    const quantify = moveQuantifyRef.current.value;
 
-      }else{
-        if (name === "" || quantify === "") return;
+    if (initialBalance == null) {
 
-        if(verifyTransaction(type, finalBalance, quantify) === true){
-          setMoves((prevMoves) => {
-            return [...prevMoves, { id: uuidv4(), type, name, quantify }];
-          });
-          calculateBalance(type, quantify);
-          handleNullInputs();
-        }else{          
-        }      
+    } else {
+      if (name === "" || quantify === "") return;
+
+      if (verifyTransaction(type, finalBalance, quantify) === true) {
+        setMoves((prevMoves) => {
+          return [...prevMoves, { id: uuidv4(), type, name, quantify }];
+        });
+        calculateBalance(type, quantify);
+        handleNullInputs();
+      } else {
       }
+    }
   };
 
   const handleNullInputs = () => {
@@ -55,12 +55,12 @@ const Register = ({ initialBalance, finalBalance, setFinalBalance }) => {
 
   const verifyTransaction = (type, finalBalance, quantify) => {
     if (type === "2") {
-      if(parseInt(finalBalance) - parseInt(quantify) < 0){
-        return false;        
-      }else{
+      if (parseInt(finalBalance) - parseInt(quantify) < 0) {
+        return false;
+      } else {
         return true;
       }
-    }else{
+    } else {
       return true;
     }
   };

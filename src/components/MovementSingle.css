@@ -1,11 +1,21 @@
-.figure-red{
+.icon-x {
+    color: red;
+    width: 0px;
+}
+
+.icon-pencil {
+    color: rgb(51, 255, 0);
+    width: 0px;
+}
+
+.figure-red {
     position: relative;
     width: 100%;
     border-radius: 20px;
     background-color: red;
 }
 
-.figure-green{
+.figure-green {
     position: relative;
     width: 100%;
     border-radius: 20px;

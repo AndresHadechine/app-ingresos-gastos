@@ -1,44 +1,37 @@
-import React from "react";
-import "./Movements.css";
-import "./MovementSingle.css";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes} from "@fortawesome/free-solid-svg-icons";
+import React from "react";
 import Button from "react-bootstrap/Button";
 import EditMove from "./EditMove";
+import "./Movements.css";
+import "./MovementSingle.css";
 
 
-const MovementSingle = ({ move, setMoves, moves, handleDeleteMovement, handleFilterType, finalBalance, setFinalBalance}) => {
-  const {id, type, name, quantify } = move;
-
-  const handleEditMove = () =>{
-   const newMove = (moves.filter((move2) => move2.id === id));
-
-   handleFilterType(0);
-
-  }
+const MovementSingle = ({ move, handleDeleteMovement, finalBalance, setFinalBalance }) => {
+  const { id, type, name, quantify } = move;
 
   return (
     <tr>
       <td>
-        <div className="iconX">
+        <div className="icon-x">
           {" "}
-          <FontAwesomeIcon className=".fa" icon={faTimes} size="2x" onClick={() => {handleDeleteMovement(id)}} />
-        </div>        
+          <FontAwesomeIcon className=".fa" icon={faTimes} size="2x" onClick={() => { handleDeleteMovement(id) }} />
+        </div>
       </td>
       <td>
-        <div className="iconPencil">
-        <EditMove move={move} handleEditMove={handleEditMove} finalBalance={finalBalance} setFinalBalance={setFinalBalance} />   
+        <div className="icon-pencil">
+          <EditMove move={move} finalBalance={finalBalance} setFinalBalance={setFinalBalance} />
         </div>
       </td>
       <td>
         <p className="p">{name}</p>
       </td>
       <td>
-        <Button variant="secondary" className={type === "2" ? "figure-red": "figure-green"}>
+        <Button variant="secondary" className={type === "2" ? "figure-red" : "figure-green"}>
           {quantify}{" "}
         </Button>
       </td>
-    </tr> 
+    </tr>
   );
 };
 

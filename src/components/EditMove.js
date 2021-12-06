@@ -1,10 +1,7 @@
-import React, { useState, useRef } from 'react'
-import { Button, Modal } from 'react-bootstrap';
+import { faDollarSign, faFile, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Form from "react-bootstrap/Form";
-import InputGroup from "react-bootstrap/InputGroup";
-import FormControl from "react-bootstrap/FormControl";
-import { faFile, faDollarSign, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
+import React, { useRef, useState } from 'react';
+import { Button, Modal, Form, FormControl, InputGroup } from 'react-bootstrap';
 
 const EditMove = ({ move, finalBalance, setFinalBalance }) => {
   const { type, name, quantify } = move;
@@ -21,36 +18,36 @@ const EditMove = ({ move, finalBalance, setFinalBalance }) => {
     const newType = moveTypeRef.current.value;
     const newName = moveNameRef.current.value;
     const newQuantify = moveQuantifyRef.current.value;
-    if(newName === ""){
+    if (newName === "") {
 
-    }else if(newQuantify === ""){
+    } else if (newQuantify === "") {
 
-    }else{
-      if(newType === type){
-        if(newType === "1"){
+    } else {
+      if (newType === type) {
+        if (newType === "1") {
           let operacion = parseInt(finalBalance) - parseInt(quantify) + parseInt(newQuantify);
           setFinalBalance(operacion);
-        }else{
+        } else {
           let operacion = parseInt(finalBalance) + parseInt(quantify) - parseInt(newQuantify);
           setFinalBalance(operacion);
-        }      
+        }
         move.type = newType;
         move.name = newName;
         move.quantify = newQuantify;
-      }else{
-        if(type === "1"){
+      } else {
+        if (type === "1") {
           let operacion = parseInt(finalBalance) - parseInt(quantify) - parseInt(newQuantify);
           setFinalBalance(operacion);
-        }else{
+        } else {
           let operacion = parseInt(finalBalance) + parseInt(quantify) + parseInt(newQuantify);
           setFinalBalance(operacion);
-        }      
+        }
         move.type = newType;
         move.name = newName;
         move.quantify = newQuantify;
       }
-    setShow(false);
-    }      
+      setShow(false);
+    }
   };
   return (
     <>

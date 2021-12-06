@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import "./Movements.css";
+import React from "react";
 import Table from "react-bootstrap/Table";
+import "./Movements.css";
 import MovementSingle from "./movementSingle";
 
-const Movements = ({ moves, setMoves, setMovesFilter, finalBalance, setFinalBalance}) => {
+const Movements = ({ moves, setMoves, setMovesFilter, finalBalance, setFinalBalance }) => {
 
   const handleDeleteMovement = (id) => {
     setMoves(moves.filter((move) => move.id !== id));
@@ -18,8 +18,6 @@ const Movements = ({ moves, setMoves, setMovesFilter, finalBalance, setFinalBala
             return (
               <MovementSingle
                 move={move}
-                setMoves={setMoves}
-                moves={moves}
                 handleDeleteMovement={handleDeleteMovement}
                 finalBalance={finalBalance}
                 setFinalBalance={setFinalBalance}

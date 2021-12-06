@@ -21,9 +21,11 @@ const EditMove = ({ move, finalBalance, setFinalBalance }) => {
     const newType = moveTypeRef.current.value;
     const newName = moveNameRef.current.value;
     const newQuantify = moveQuantifyRef.current.value;
-    console.log("Old type " + move.type);
-      console.log("new type: " + newType);
+    if(newName === ""){
 
+    }else if(newQuantify === ""){
+
+    }else{
       if(newType === type){
         if(newType === "1"){
           let operacion = parseInt(finalBalance) - parseInt(quantify) + parseInt(newQuantify);
@@ -48,6 +50,7 @@ const EditMove = ({ move, finalBalance, setFinalBalance }) => {
         move.quantify = newQuantify;
       }
     setShow(false);
+    }      
   };
   return (
     <>
@@ -71,7 +74,7 @@ const EditMove = ({ move, finalBalance, setFinalBalance }) => {
               <InputGroup.Text>
                 <FontAwesomeIcon icon={faFile} />{" "}
               </InputGroup.Text>
-              <FormControl aria-label="" ref={moveNameRef} placeholder={name} required="true" />
+              <FormControl aria-label="" ref={moveNameRef} defaultValue={name} required="true" />
             </InputGroup>
           </div>
           <div className="entry">
@@ -80,7 +83,7 @@ const EditMove = ({ move, finalBalance, setFinalBalance }) => {
               <InputGroup.Text>
                 <FontAwesomeIcon icon={faDollarSign} />{" "}
               </InputGroup.Text>
-              <FormControl aria-label="" ref={moveQuantifyRef} placeholder={quantify} required />
+              <FormControl aria-label="" ref={moveQuantifyRef} defaultValue={quantify} required />
             </InputGroup>
           </div>
         </Modal.Body>
